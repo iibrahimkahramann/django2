@@ -1,3 +1,10 @@
 from django.db import models
+from autoslug import AutoSlugField
 
-# Create your models here.
+class yazi(models.Model):
+    baslik = models.CharField(max_length=120)
+    ozet = models.TextField(max_length=300)
+    icerik = models.TextField()
+    olustuma_tarihi = models.DateTimeField(auto_now_add=True)
+    gunselleme_tarihi = models.DateTimeField(auto_now=True)
+    slug = AutoSlugField(populate_from='baslik', unique=True, editable=False)
