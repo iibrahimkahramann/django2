@@ -8,3 +8,5 @@ class yazi(models.Model):
     olustuma_tarihi = models.DateTimeField(auto_now_add=True)
     gunselleme_tarihi = models.DateTimeField(auto_now=True)
     slug = AutoSlugField(populate_from='baslik', unique=True, editable=False)
+    class Meta:
+        db_table = 'yazilar'       #veritabanının ismini belirler
