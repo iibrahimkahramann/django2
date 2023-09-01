@@ -1,7 +1,7 @@
 from django.db import models
 from autoslug import AutoSlugField
 
-class yazi(models.Model):
+class Yazi(models.Model):
     baslik = models.CharField(max_length=120)
     ozet = models.TextField(max_length=300)
     icerik = models.TextField()
@@ -11,7 +11,7 @@ class yazi(models.Model):
     yazar = models.CharField(max_length=1200, null=True)   #sonradan olusturdugumuz kolon veritabanını bozmasın diye null kullanıyoruz boş olabilir diyoruz
     class Meta:
         db_table = 'yazilar'      #veritabanının ismini belirler
-        verbose_name = 'yazi'
+        verbose_name = 'Yazi'
         verbose_name_plural = 'Yazılar'
 
     def __str__(self):

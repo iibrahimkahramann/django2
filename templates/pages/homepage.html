@@ -1,6 +1,10 @@
-{% extends 'page.html' %}
+{% extends 'base.html' %}
 {% block page_title %} {{title}} {% endblock %}
 {% block content %}
     <h1>{{title}}</h1>
+
+    {%for yazi in yazilar%}
+        <a href="{% url 'blog_detail' slug=yazi.slug %}"> {{yazi.baslik}}</a>
+    {%endfor%}
 {% endblock %}
 

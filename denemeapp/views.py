@@ -1,19 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import Yazi
 page_defaults = {
     "title": "başlıksız"
 }
 def homepage(request):
-    name = "orhan"
-    content ={
-        "title":"anasyfa",
-        "body": "<h1>anasyafa</h1>"
-    }
-    context  ={
-        **page_defaults,
-        **content
-    }
+    yazilar = Yazi.objects.all()
+    return render(request,"pages/homepage.html", {
+        'yazilar': yazilar
+    })
 
-    return render(request,"pages/page.html",context)
 
 def about(request):
     content = {
@@ -37,6 +32,17 @@ def contact(request):
         **content
     }
     return render(request,"pages/page.html",context)
+
+
+
+
+def blog_detail(request, slug):
+    yazi = get_object_or_404(Yazi, slug=slug)
+    return render(request, 'pages/blog_detail.html', {
+        'yazi': yazi
+    })
+
+
 
 
 

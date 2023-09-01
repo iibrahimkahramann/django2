@@ -1,4 +1,5 @@
-from django.contrib import admin
-from .models import yazi
 
-admin.site.register(yazi)
+from django.contrib import admin
+from .models import Yazi
+
+admin.site.register(Yazi)
